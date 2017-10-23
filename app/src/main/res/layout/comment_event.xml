@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="5dp">
+
+    <com.hdsx.mypockethub.ui.view.OcticonTextView
+        android:id="@+id/tv_event_icon"
+        style="@style/PrimaryIcon"
+        android:layout_centerVertical="true"/>
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        style="@style/AvatarSmall"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/tv_event_icon"
+        android:layout_toRightOf="@id/tv_event_icon"
+        android:contentDescription="@string/avatar"/>
+
+    <TextView
+        android:id="@+id/tv_event"
+        style="@style/ListTitleText"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/iv_avatar"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:textSize="15sp"
+        android:textStyle="normal"/>
+
+</RelativeLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?selectableItemBackground"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_state"
+        style="@style/SubtitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/state_background_closed"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/state_text"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            style="@style/AvatarLarge"
+            android:contentDescription="@string/avatar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:id="@+id/tv_issue_author"
+                style="@style/ListSubtitleText"
+                android:singleLine="true"
+                android:textIsSelectable="true"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_issue_creation_date"
+                style="@style/ListSubtitleText"
+                android:singleLine="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_issue_title"
+        style="@style/ListTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:textIsSelectable="true"/>
+
+    <TextView
+        android:id="@+id/tv_labels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textIsSelectable="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_milestone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/inset_background"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_milestone"
+            style="@style/ListSubtitleText"
+            android:singleLine="true"
+            android:textColor="@color/text"/>
+
+        <include layout="@layout/milestone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_assignee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/inset_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp">
+
+        <ImageView
+            android:id="@+id/iv_assignee_avatar"
+            style="@style/AvatarMedium"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/avatar"/>
+
+        <TextView
+            android:id="@+id/tv_assignee_name"
+            style="@style/ListSubtitleText"
+            android:singleLine="true"
+            android:textColor="@color/text"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_issue_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/text"
+        android:textColorLink="@color/text_link"
+        android:textIsSelectable="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_issue_commits"
+        style="@style/HeaderListItem"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/inset_background"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.hdsx.mypockethub.ui.view.OcticonTextView
+            android:id="@+id/tv_commit_icon"
+            style="@style/PrimaryIcon"
+            android:paddingEnd="5dp"
+            android:paddingRight="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_pull_request_commits"
+            style="@style/ListTitleText"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:textIsSelectable="true"/>
+
+    </LinearLayout>
+
+</LinearLayout>

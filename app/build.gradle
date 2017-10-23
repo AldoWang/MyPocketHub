@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+def clientIdIsNotSet = true;
+def clientSecretIsNotSet = true;
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.hdsx.mypockethub"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        if (project.hasProperty('pockethub_github_client')) {
+            resValue "string", "github_client", pockethub_github_client
+            clientIdIsNotSet = false
+        } else {
+            resValue "string", "github_client", "dummy_client"
+        }
+
+        if (project.hasProperty('pockethub_github_secret')) {
+            resValue "string", "github_secret", pockethub_github_secret
+            clientSecretIsNotSet = false
+        } else {
+            resValue "string", "github_secret", "dummy_secret"
+        }
+
+        if (clientIdIsNotSet || clientSecretIsNotSet) {
+            logger.warn("You won't be able to login, because the oauth client or secret isn't set")
+            logger.warn("Read the README.md: https://github.com/pockethub/PocketHub#setup-environment")
+        }
+
+        String oauth = ""
+        if (project.hasProperty('pockethub_github_callback')) {
+            oauth = pockethub_github_callback
+        } else {
+            oauth = "http://dummy.example.com"
+        }
+
+        resValue "string", "github_oauth", oauth
+        resValue "string", "github_oauth_scheme", oauth.split("://")[0]
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile(name: 'lib', ext: 'aar')
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.jakewharton:butterknife:8.6.0'
+    compile 'com.github.meisolsson:githubsdk:0.4.5'
+    compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+    compile 'com.google.dagger:dagger:2.11'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="icon_pull_request" translatable="false">\uf20E</string>
+    <string name="icon_comment" translatable="false">\uf04f</string>
+    <string name="icon_file" translatable="false">\uf011</string>
+    <string name="icon_tag" translatable="false">\uf215</string>
+    <string name="icon_folder" translatable="false">\uf216</string>
+    <string name="icon_folders" translatable="false">\uf217</string>
+    <string name="icon_star" translatable="false">\uf02a</string>
+    <string name="icon_fork" translatable="false">\uf020</string>
+</resources>

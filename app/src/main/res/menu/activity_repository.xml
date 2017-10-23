@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/m_star"
+        android:title="@string/star"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_fork"
+        android:title="@string/fork"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_contributors"
+        android:title="@string/contributors"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_share"
+        android:title="@string/share"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_parent_repo"
+        android:title="@string/parent_repo"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/m_delete"
+        android:title="@string/delete"
+        app:showAsAction="never"/>
+    
+</menu>
