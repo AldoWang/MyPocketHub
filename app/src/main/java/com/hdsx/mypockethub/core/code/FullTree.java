@@ -30,6 +30,7 @@ public class FullTree {
 
         root = new Folder();
         List<GitTreeEntry> entries = gitTree.tree();
+        //entries are returned in order
         if (entries != null && entries.size() > 0) {
             for (GitTreeEntry entry : entries) {
                 root.add(entry);
@@ -117,7 +118,6 @@ public class FullTree {
             this.parent = parent;
             this.name = CommitUtils.getName(entry.path());
         }
-
 
         @Override
         public int compareTo(@NonNull Entry anthor) {

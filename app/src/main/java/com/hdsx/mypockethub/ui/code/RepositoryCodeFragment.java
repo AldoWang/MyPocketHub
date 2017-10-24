@@ -88,7 +88,6 @@ public class RepositoryCodeFragment extends DialogFragment implements OnItemClic
         repository = getParcelableExtra(EXTRA_REPOSITORY);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_repo_code, container, false);
@@ -191,7 +190,7 @@ public class RepositoryCodeFragment extends DialogFragment implements OnItemClic
                     public void onClick(View v) {
                         Folder clicked = folder;
                         for (int j = index; j < segments.length - 1; j++) {
-                            clicked = folder.parent;
+                            clicked = clicked.parent;
                             if (clicked == null) {
                                 return;
                             }
@@ -208,7 +207,7 @@ public class RepositoryCodeFragment extends DialogFragment implements OnItemClic
             }
         } else {
             if (pathShowing) {
-                adapter.removeFooter(pathHeaderView);
+                adapter.removeHeader(pathHeaderView);
                 pathShowing = false;
             }
         }
